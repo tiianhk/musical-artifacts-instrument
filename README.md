@@ -1,4 +1,4 @@
-Script for downloading standalone virtual instruments (not synthesizer presets) from [musical-artifacts.com](https://musical-artifacts.com) using its public API.
+Script for downloading standalone virtual instruments from [musical-artifacts.com](https://musical-artifacts.com). Metadata was fetched, filtered, and stored in `musical_artifacts.json` using the website's [API](https://github.com/lfzawacki/musical-artifacts/wiki/API-Documentation) on 2025-10-26. The lastest instrument ID is 7254 ([this instrument](https://musical-artifacts.com/artifacts/7254)), which was uploaded on the same date.
 
 ### Usage
 ```
