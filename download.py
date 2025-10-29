@@ -9,6 +9,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--out_dir", type=str, default="data")
 args = parser.parse_args()
 out_dir = Path(args.out_dir)
+out_dir.mkdir(parents=True, exist_ok=True)
 
 with open("musical_artifacts.json", "r") as f:
     musical_artifacts = json.load(f)
