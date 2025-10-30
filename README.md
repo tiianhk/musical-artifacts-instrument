@@ -1,11 +1,11 @@
-Script for downloading standalone virtual instruments from [musical-artifacts.com](https://musical-artifacts.com). Metadata was fetched, filtered, and stored in `musical_artifacts.json` using the website's [API](https://github.com/lfzawacki/musical-artifacts/wiki/API-Documentation) on 2025-10-26. The lastest instrument ID is 7254 ([this instrument](https://musical-artifacts.com/artifacts/7254)), which was uploaded on the same date.
+Script for downloading standalone virtual instruments from [musical-artifacts.com](https://musical-artifacts.com). Metadata was fetched, filtered, and stored in `metadata.json` using the website's [API](https://github.com/lfzawacki/musical-artifacts/wiki/API-Documentation) on 2025-10-26. The lastest instrument ID is 7254 ([this instrument](https://musical-artifacts.com/artifacts/7254)), which was uploaded on the same date.
 
 ### Environment
 ```
 uv sync
 ```
 The Python module `rarfile` requires the command-line application `unrar` , which can be installed using `brew install unrar` on macOS or `sudo apt-get install unrar` on Linux.
-If you don’t have sudo privileges on Linux, you can build it from source by following the instructions [here](https://www.linuxfromscratch.org/blfs/view/svn/general/unrar.html), and make the executable available in PATH (e.g., move it to `~/.local/bin` ).
+If you don’t have sudo privileges on Linux, you can build it from source by following the instructions [here](https://www.linuxfromscratch.org/blfs/view/svn/general/unrar.html), and make the executable available in PATH (e.g., by moving it to `~/.local/bin` ).
 You can verify that it was successfully installed by running `which unrar` .
 
 ### Usage

@@ -30,12 +30,12 @@ if __name__ == "__main__":
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    with open("musical_artifacts.json", "r") as f:
-        musical_artifacts = json.load(f)
+    with open("metadata.json", "r") as f:
+        metadata = json.load(f)
 
     downloaded = [str(p.name) for p in out_dir.iterdir()]
 
-    for item in tqdm(musical_artifacts):
+    for item in tqdm(metadata):
         assert Path(item["file"]).suffix.lower() in suffixes
         assert item["license"] in licenses
         assert set(item["formats"]) & set(formats)
