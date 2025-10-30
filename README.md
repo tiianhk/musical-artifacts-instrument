@@ -4,6 +4,9 @@ Script for downloading standalone virtual instruments from [musical-artifacts.co
 ```
 uv sync
 ```
+The Python module `rarfile` requires the command-line application `unrar` , which can be installed using `brew install unrar` on macOS or `sudo apt-get install unrar` on Linux.
+If you don’t have sudo privileges on Linux, you can build it from source by following the instructions [here](https://www.linuxfromscratch.org/blfs/view/svn/general/unrar.html).
+You can verify that it was successfully installed by running `which unrar` .
 
 ### Usage
 To download:
