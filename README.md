@@ -26,6 +26,14 @@ uv run python unpack.py --out_dir path/to/out_dir
  - Nested structures will be unpacked recursively.
  - The total size comes to ~147G.
 
+To find and tag duplicates:
+```
+uv run python deduplicate.py --out_dir path/to/out_dir
+```
+ - Use the same `out_dir` as download and unpack.
+ - It checks `*.sf2`, `*.sf3` , and `*.sfz` files.
+ - For files that are duplicates of each other, we keep one of them as is and tag the others as duplicates by adding `.duplicate` to their filenames.
+
 ### Licenses
 All instruments are in the public domain or under one of the following licenses:
  - Creative Commons Attribution 3.0
