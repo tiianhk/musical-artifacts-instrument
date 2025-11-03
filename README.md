@@ -1,16 +1,25 @@
-Script for downloading standalone virtual instruments from [musical-artifacts.com](https://musical-artifacts.com). Metadata was fetched, filtered, and stored in `metadata.json` using the website's [API](https://github.com/lfzawacki/musical-artifacts/wiki/API-Documentation) on 2025-10-26. The lastest instrument ID is 7254 ([this instrument](https://musical-artifacts.com/artifacts/7254)), which was uploaded on the same date.
+# Musical Artifacts Instrument
 
-### Environment
-```
+Python scripts for downloading standalone virtual instruments from [musical-artifacts.com](https://musical-artifacts.com) . \
+Metadata was fetched, filtered, and stored in `metadata.json` using the website's [API](https://github.com/lfzawacki/musical-artifacts/wiki/API-Documentation) on 2025-10-26. \
+It contains a total of 2,629 items. Here are the [first item](https://musical-artifacts.com/artifacts/8) and the [last item](https://musical-artifacts.com/artifacts/7254) . The upload period spans from 2015-07-29 to 2025-10-26. \
+Data for each item contains at least one file in `.sf2`, `.sf3` , or `.sfz` format. All licenses are listed [here](#Licenses).
+
+## Environment
+
+1. Make sure [uv](https://github.com/astral-sh/uv) is installed. Verify by running `which uv` .
+2. Make sure [unrar](https://www.rarlab.com) is installed. Verify by running `which unrar` . Note: if you don’t have sudo privileges on Linux, you can build it from source by following the instructions [here](https://www.linuxfromscratch.org/blfs/view/svn/general/unrar.html) , and make the executable available in PATH (e.g., by moving it to `~/.local/bin` ).
+3. Clone this repository, open its directory, and sync the environment:
+```bash
+git clone https://github.com/tiianhk/musical-artifacts-instrument.git
+cd musical-artifacts-instrument
 uv sync
 ```
-The Python module `rarfile` requires the command-line application `unrar` , which can be installed using `brew install unrar` on macOS or `sudo apt-get install unrar` on Linux.
-If you don’t have sudo privileges on Linux, you can build it from source by following the instructions [here](https://www.linuxfromscratch.org/blfs/view/svn/general/unrar.html) , and make the executable available in PATH (e.g., by moving it to `~/.local/bin` ).
-You can verify that it was successfully installed by running `which unrar` .
 
-### Usage
+## Usage
+
 To download:
-```
+```bash
 uv run python download.py --out_dir path/to/out_dir
 ```
  - If `--out_dir` is not given, the default output directory is `data/` .
@@ -19,7 +28,7 @@ uv run python download.py --out_dir path/to/out_dir
  - The downloaded files are mainly `*.sf2` , but might be `*.sf3` , `*.sfz` , or archives.
 
 To unpack the archives ( `*.zip` , `*.rar` , and `*.7z` ):
-```
+```bash
 uv run python unpack.py --out_dir path/to/out_dir
 ```
  - Use the same `out_dir` as download.
@@ -27,15 +36,16 @@ uv run python unpack.py --out_dir path/to/out_dir
  - The total size comes to ~147G.
 
 To find and tag duplicates:
-```
+```bash
 uv run python deduplicate.py --out_dir path/to/out_dir
 ```
  - Use the same `out_dir` as download and unpack.
- - It checks `*.sf2`, `*.sf3` , and `*.sfz` files.
- - For files that are duplicates of each other, we keep one of them as is and tag the others as duplicates by adding `.duplicate` to their filenames.
+ - It checks all `*.sf2`, `*.sf3` , and `*.sfz` files.
+ - For files that are duplicates of each other, it keeps one of them as is and tags the others as duplicates by adding `.duplicate` to their filenames.
 
-### Licenses
-All instruments are in the public domain or under one of the following licenses:
+## Licenses
+
+All instruments are either in the public domain or under one of the following licenses:
  - Creative Commons Attribution 3.0
  - Creative Commons Attribution 4.0
  - Creative Commons Attribution-ShareAlike 3.0
@@ -48,3 +58,7 @@ All instruments are in the public domain or under one of the following licenses:
  - GNU General Public License V3
  - Free Art License v1.3
  - Do What The Fuck You Want To Public License v2
+
+## Synthesizers
+
+For audio synthesis in Python, it is recommanded to use [pyfluidsynth](https://github.com/nwhitehead/pyfluidsynth/tree/master) for `.sf2` and `.sf3` files, and [pysfizz](https://github.com/tiianhk/pysfizz) for `.sfz` files.
