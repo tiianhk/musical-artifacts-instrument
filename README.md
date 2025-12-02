@@ -3,7 +3,7 @@
 Python scripts for downloading standalone virtual instruments from [musical-artifacts.com](https://musical-artifacts.com) . \
 Metadata was fetched, filtered, and stored in `metadata.json` using the website's [API](https://github.com/lfzawacki/musical-artifacts/wiki/API-Documentation) on 2025-10-26. \
 It contains data hosted on 2,629 webpages. Check the [first](https://musical-artifacts.com/artifacts/8) and the [last](https://musical-artifacts.com/artifacts/7254) . The upload period spans from 2015-07-29 to 2025-10-26. \
-Data for each item contains at least one file in `.sf2`, `.sf3` , or `.sfz` format. All licenses are listed [here](#Licenses).
+Data from each webpage contains at least one file in `.sf2` , `.sf3` , or `.sfz` format. All [licenses](#Licenses) allow creating and publicly sharing derivative audio data, as long as the license conditions (e.g., attribution, non-commercial use, or ShareAlike) are respected.
 
 ## Environment
 
