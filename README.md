@@ -2,13 +2,13 @@
 
 Python scripts for downloading standalone virtual instruments from [musical-artifacts.com](https://musical-artifacts.com) . \
 Metadata was fetched, filtered, and stored in `metadata.json` using the website's [API](https://github.com/lfzawacki/musical-artifacts/wiki/API-Documentation) on 2025-10-26. \
-It contains a total of 2,629 items. Here are the [first item](https://musical-artifacts.com/artifacts/8) and the [last item](https://musical-artifacts.com/artifacts/7254) . The upload period spans from 2015-07-29 to 2025-10-26. \
+It contains data hosted on 2,629 webpages. Check the [first](https://musical-artifacts.com/artifacts/8) and the [last](https://musical-artifacts.com/artifacts/7254) . The upload period spans from 2015-07-29 to 2025-10-26. \
 Data for each item contains at least one file in `.sf2`, `.sf3` , or `.sfz` format. All licenses are listed [here](#Licenses).
 
 ## Environment
 
-1. Make sure [uv](https://github.com/astral-sh/uv) is installed. Verify by running `which uv` .
-2. Make sure [unrar](https://www.rarlab.com) is installed. Verify by running `which unrar` . Note: if you don’t have sudo privileges on Linux, you can build it from source by following the instructions [here](https://www.linuxfromscratch.org/blfs/view/svn/general/unrar.html) , and make the executable available in PATH (e.g., by moving it to `~/.local/bin` ).
+1. Install [uv](https://github.com/astral-sh/uv) if you don't have it. Verify by running `which uv` .
+2. Install [unrar](https://www.rarlab.com) if you don't have it. Verify by running `which unrar` . Note: if you don’t have sudo privileges on Linux and want to install it, you can follow the instructions [here](https://www.linuxfromscratch.org/blfs/view/svn/general/unrar.html) to build from source, and make the executable available in PATH (e.g., by moving it to `~/.local/bin` ).
 3. Clone this repository, open its directory, and sync the environment:
 ```bash
 git clone https://github.com/tiianhk/musical-artifacts-instrument.git
